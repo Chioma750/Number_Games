@@ -4,11 +4,16 @@ attempt = 0
 max_attempt = 5
 
 while attempt < max_attempt:
-    guess = int(input("guess a number from 1 to 100: "))
+    try:
+        guess = int(input("guess a number from 1 to 100: "))
+    except:
+        print("Invalid input, please input a valid number.")
+        print()
+        continue
     attempt += 1
-    
+
     if guess == secret_number:
-        print("You are correct ☺️")
+        print("You are correct ✅")
         print("you attempted", attempt, "times")
         break 
     elif attempt == max_attempt:
