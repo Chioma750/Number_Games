@@ -10,13 +10,13 @@ print("Hard -> 1 to 1000")
 print()
 Level = input("Choose your level: ")
 
-if Level == "Easy":
+if Level.lower() == "easy":
     lower_bound = 1
     upper_bound = 100
-elif Level == "Medium":
+elif Level.lower() == "medium":
     lower_bound = 1
     upper_bound = 500
-elif Level == "Hard":
+elif Level.lower() == "hard":
     lower_bound = 1
     upper_bound = 1000
 
