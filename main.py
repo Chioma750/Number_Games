@@ -8,17 +8,24 @@ print("Medium -> 1 to 500")
 print("Hard -> 1 to 1000")
 
 print()
-Level = input("Choose your level: ")
+while True:
+    Level = input("Choose your level: ")
 
-if Level.lower() == "easy":
-    lower_bound = 1
-    upper_bound = 100
-elif Level.lower() == "medium":
-    lower_bound = 1
-    upper_bound = 500
-elif Level.lower() == "hard":
-    lower_bound = 1
-    upper_bound = 1000
+    if Level.lower() == "easy":
+        lower_bound = 1
+        upper_bound = 100
+        break
+    elif Level.lower() == "medium":
+        lower_bound = 1
+        upper_bound = 500
+        break
+    elif Level.lower() == "hard":
+        lower_bound = 1
+        upper_bound = 1000
+        break
+    else:
+        print("Incorrect input... choose from the levels listed above.")
+        print()
 
 secret_number = random.randint(lower_bound, upper_bound)
 
