@@ -3,14 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>minigame</title>
+    <style>
+        body {
+            font-family: 'JetBrains Mono',  monospace;
+            background-color: #16171a;
+            color: #edebe6;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            gap: 20px;
+        }
+        #guessGame {
+           background-color: #1f2023;
+            width: 420px;
+            padding: 20px;
+            border-radius: 16px; 
+        }
+        button {
+            border: none;
+            border-radius: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 17px;
+            padding: 16px 0;
+            cursor: pointer;
+            color: #edebe6;           
+        }
+        .level {
+            background-color: #6b5228;
+            color: #e9a23b;   
+        }
+        #submit {
+            background-color: #e9a23b;
+            color: #1a1206;
+        }
+        #guess {
+            display: flex;
+            gap: 20px;
+        }
+        #GameLevels {
+            display: flex;
+            gap: 20px;
+        }
+    </style>
 </head>
 <body>
     <div id = "header">
-        <h2>Number Game</h2>
+         <h2>Number Game</h2>
         <p class = "kicker"> Web Build </p>
     </div>
-    <div id = "guessGame"></div>
+
+    <div id = "guessGame">
+        <div id="GameLevels">
+            <button class="level">Easy</button>
+            <button class="level">Medium</button>
+            <button class="level">Hard</button>
+        </div>
+
+        <div id="guess">
+            <input type="number" placeholder="Enter a guess">
+            <button id="submit">Submit</button>
+        </div>
+
+        <div id="feedback"></div>
+
+        <div id="status">
+            <p id="Trials">Attempt</p>
+            <p id="currentRange">Range</p>
+        </div>
+        
+    </div>
     
 </body>
 </html>
+       
