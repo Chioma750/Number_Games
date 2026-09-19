@@ -83,7 +83,7 @@
         </div>
 
         <div id="guess">
-            <input type="number" placeholder="Enter a guess">
+            <input id = "guessInput" type="number" placeholder="Enter a guess">
             <button id="submit">Submit</button>
         </div>
 
@@ -103,14 +103,14 @@
         let lowerBound = null
         let upperBound = null 
 
-        const guess = document.getElementById("guess");
-        console.log(guess)
+        const guessInput = document.getElementById("guessInput");
+        console.log(guessInput)
 
         const feedback = document.getElementById("feedback");
         console.log(feedback)
 
-        const trials = document.getElementById("trials");
-        console.log(trials)
+        const Trials = document.getElementById("Trials");
+        console.log(Trials)
 
         const currentRange = document.getElementById("currentRange");
         console.log(currentRange)
@@ -118,7 +118,8 @@
         const submit = document.getElementById("submit");
         console.log(submit)
 
-        const level = document.querySelectorAll("level");
+        const level = document.querySelectorAll(".level");
+        console.log(level)
         
     </script>
     
