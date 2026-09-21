@@ -119,7 +119,21 @@
         console.log(submit)
 
         const level = document.querySelectorAll(".level");
-        console.log(level)
+        level.forEach(function(button) {
+            button.addEventListener("click", function(event) {
+                if (event.terget.textContext.toLowerCase() === "easy") {
+                    lowerBound = 1;
+                    upperBound = 100;
+                } else if (event.terget.textContext.toLowerCase() === "medium") {
+                    lowerBound = 1;
+                    upperBound = 500;
+                } else if (event.terget.textContext.toLowerCase() === "hard") {
+                    lowerBound = 1;
+                    upperBound = 1000;
+                } 
+                console.log(lowerBound, upperBound)
+            })
+        })
         
     </script>
     
