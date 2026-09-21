@@ -116,21 +116,31 @@
         console.log(currentRange)
 
         const submit = document.getElementById("submit");
+        submit.addEventListener("click", function() {
+            const guess = parseInt(guessInput.value);
+            if (isNaN(guess)) {
+                feedback.textContent = "Invalid input, please enter a valid number"
+                return
+            }
+        })
         console.log(submit)
 
         const level = document.querySelectorAll(".level");
         level.forEach(function(button) {
             button.addEventListener("click", function(event) {
-                if (event.terget.textContext.toLowerCase() === "easy") {
+                if (event.target.textContent.toLowerCase() === "easy") {
                     lowerBound = 1;
                     upperBound = 100;
-                } else if (event.terget.textContext.toLowerCase() === "medium") {
+                } else if (event.target.textContent.toLowerCase() === "medium") {
                     lowerBound = 1;
                     upperBound = 500;
-                } else if (event.terget.textContext.toLowerCase() === "hard") {
+                } else if (event.target.textContent.toLowerCase() === "hard") {
                     lowerBound = 1;
                     upperBound = 1000;
                 } 
+                secret_Number = Math.floor(Math.random() * (upperBound - lowerBound + 1)) + lowerBound
+                currentRange.textContent = `Range: ${lowerBound} to ${upperBound}`
+                console.log(secret_Number)
                 console.log(lowerBound, upperBound)
             })
         })
