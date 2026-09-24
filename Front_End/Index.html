@@ -59,6 +59,7 @@
         #feedback {
             text-align: center;
             font-size: 17px;
+            white-space: pre-line;
         }
         #status {
             color: #8b8f94;
@@ -89,6 +90,10 @@
 
         <div id="feedback"></div>
 
+        <div> 
+            <button id="playAgain"> Play Again </button>
+        </div>
+
         <div id="status">
             <p id="Trials">Attempt</p>
             <p id="currentRange">Range</p>
@@ -114,6 +119,19 @@
 
         const currentRange = document.getElementById("currentRange");
         console.log(currentRange)
+
+        function resetGame() {
+            secret_Number = null
+            attempt = 0
+            lowerBound = null
+            upperBound = null
+            feedback.textContent = ""
+            Trials.textContent = `Attempts: ${attempt} / ${maxAttempt}`
+            currentRange.textContent = "Choose your Level."
+            guessInput.value = ""
+            playAgain = ""
+        }
+        resetGame.addEventListener("click", function() {})
 
         const submit = document.getElementById("submit");
         submit.addEventListener("click", function() {
