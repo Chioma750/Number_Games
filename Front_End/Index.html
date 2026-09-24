@@ -17,7 +17,7 @@
             gap: 20px;
         }
         #guessGame {
-           background-color: #1f2023;
+            background-color: #1f2023;
             width: 420px;
             padding: 20px;
             border-radius: 16px; 
@@ -71,7 +71,7 @@
 </head>
 <body>
     <div id = "header">
-         <h2>Number Game</h2>
+        <h2>Number Game</h2>
         <p class = "kicker"> Web Build </p>
     </div>
 
@@ -122,6 +122,19 @@
                 feedback.textContent = "Invalid input, please enter a valid number"
                 return
             }
+
+            attempt += 1
+            Trials.textContent = `Attempts: ${attempt} / ${maxAttempt}`
+
+            if (guess === secret_Number) {
+                feedback.textContent = "You are correct ✅"
+            } else if (attempt === maxAttempt) {
+                feedback.textContent = `You Failed 🤣, and you have reached your limit! \n The answer is: ${secret_Number}`
+            } else if (guess > secret_Number) {
+                feedback.textContent = "Too high"
+            } else if (guess < secret_Number) {
+                feedback.textContent = "Too low"
+            }
         })
         console.log(submit)
 
@@ -149,4 +162,3 @@
     
 </body>
 </html>
-       
