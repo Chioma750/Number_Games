@@ -18,22 +18,23 @@
         }
         #guessGame {
             background-color: #1f2023;
-            width: 420px;
-            padding: 20px;
+            width: 500px;
+            padding: 50px;
             border-radius: 16px; 
         }
         button {
             border: none;
             border-radius: 10px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 17px;
+            font-size: 20px;
             padding: 16px 0;
             cursor: pointer;
-            color: #edebe6;           
+            color: #edebe6; 
+            transition: background-color 0.2s;          
         }
         .level {
             background-color: #6b5228;
-            color: #e9a23b;   
+            color: #e9a23b;
         }
         #submit {
             background-color: #e9a23b;
@@ -58,7 +59,7 @@
         }
         #feedback {
             text-align: center;
-            font-size: 17px;
+            font-size: 15px;
             white-space: pre-line;
         }
         #status {
@@ -67,6 +68,10 @@
             margin: 0;
             display: flex;
             justify-content: space-between;
+        }
+        #playAgain {
+            background-color: #16171a;
+            color: #e9a23b;
         }
     </style>
 </head>
@@ -129,10 +134,14 @@
             Trials.textContent = `Attempts: ${attempt} / ${maxAttempt}`
             currentRange.textContent = "Choose your Level."
             guessInput.value = ""
-            playAgain = ""
+            submit.disabled = false
+            guessInput.disabled = false
         }
-        resetGame.addEventListener("click", function() {})
-
+        
+        const playAgain = document.getElementById("playAgain");
+        playAgain.addEventListener("click", function() {
+            resetGame()
+        })
         const submit = document.getElementById("submit");
         submit.addEventListener("click", function() {
             const guess = parseInt(guessInput.value);
@@ -146,8 +155,14 @@
 
             if (guess === secret_Number) {
                 feedback.textContent = "You are correct ✅"
+                submit.disabled = true 
+                guessInput.disabled = true
+
             } else if (attempt === maxAttempt) {
                 feedback.textContent = `You Failed 🤣, and you have reached your limit! \n The answer is: ${secret_Number}`
+                submit.disabled = true 
+                guessInput.disabled = true
+
             } else if (guess > secret_Number) {
                 feedback.textContent = "Too high"
             } else if (guess < secret_Number) {
