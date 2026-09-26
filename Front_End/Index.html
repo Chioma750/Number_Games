@@ -18,7 +18,8 @@
         }
         #guessGame {
             background-color: #1f2023;
-            width: 500px;
+            max-width: 500px;
+            width: 90%;
             padding: 50px;
             border-radius: 16px; 
         }
@@ -42,9 +43,10 @@
         #submit {
             background-color: #e9a23b;
             color: #1a1206;
+            border: 2px solid #e9a23b;
         }
         #submit:hover {
-            background-color: #8b8f94;
+            background-color: #16171a;
         }
         #guess {
             display: flex;
@@ -81,6 +83,11 @@
         }
         #playAgain:hover {
             background-color: #26282c;
+        }
+        .selected {
+            background-color: #e9a23b;
+            color: #1a1206;
+            border: 2px solid #e9a23b;
         }
     </style>
 </head>
@@ -183,6 +190,11 @@
         const level = document.querySelectorAll(".level");
         level.forEach(function(button) {
             button.addEventListener("click", function(event) {
+                level.forEach(function(btn) {
+                    btn.classList.remove("selected");
+                });
+                event.target.classList.add("selected");
+
                 if (event.target.textContent.toLowerCase() === "easy") {
                     lowerBound = 1;
                     upperBound = 100;
